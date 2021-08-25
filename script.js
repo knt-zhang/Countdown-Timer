@@ -62,7 +62,6 @@ var moveInArray = function (arr, from, to) {
 	arr.splice(to, 0, item[0]);
 };
 
-
 function inputValue(){
     // read the value from the date input
     var x = inputElement.value;
