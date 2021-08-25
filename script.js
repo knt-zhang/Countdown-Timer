@@ -36,7 +36,6 @@ function countdown(targetDate) {
     hoursElement.innerHTML = formatTime(hours);
     minsElement.innerHTML = formatTime(mins);
     secondsElement.innerHTML = formatTime(seconds);
-    // setInterval(countdown(targetDate),1000);
 }
 
 function formatTime(time) {
@@ -44,28 +43,28 @@ function formatTime(time) {
     if (stringTime.includes("-")) {
         return '0'
     }
-    // console.log(typeof time);
+
     return time < 10 ? `0${time}` : time;
 }
 
 var moveInArray = function (arr, from, to) {
-	// Make sure a valid array is provided
+	// make sure a valid array is provided
 	if (Object.prototype.toString.call(arr) !== '[object Array]') {
 		throw new Error('Please provide a valid array');
 	}
-	// Delete the item from it's current position
+	// delete the item from it's current position
 	var item = arr.splice(from, 1);
-	// Make sure there's an item to move
+	// make sure there's an item to move
 	if (!item.length) {
 		throw new Error('There is no item in the array at index ' + from);
 	}
-	// Move the item to its new position
+	// move the item to its new position
 	arr.splice(to, 0, item[0]);
 };
 
 
 function inputValue(){
-    
+    // read the value from the date input
     var x = inputElement.value;
     var nums = x.split('-');
 
@@ -84,10 +83,6 @@ function inputValue(){
     var targetDate = nums.join(" "); 
 
     countdown(targetDate);
-    // setInterval((countdown(targetDate)), 1000);
 }
 
-// countdown();
-
-// setInterval(countdown, 1000);
 setInterval(inputValue, 1000);
