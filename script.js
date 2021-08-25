@@ -32,7 +32,7 @@ function countdown(targetDate) {
     const mins = (Math.floor(totalSeconds / 60) % 24);
     const seconds = Math.floor(totalSeconds % 60);
 
-    daysElement.innerHTML = days;
+    daysElement.innerHTML = formatTime(days);
     hoursElement.innerHTML = formatTime(hours);
     minsElement.innerHTML = formatTime(mins);
     secondsElement.innerHTML = formatTime(seconds);
@@ -40,6 +40,11 @@ function countdown(targetDate) {
 }
 
 function formatTime(time) {
+    const stringTime = time.toString();
+    if (stringTime.includes("-")) {
+        return '0'
+    }
+    // console.log(typeof time);
     return time < 10 ? `0${time}` : time;
 }
 
@@ -63,7 +68,7 @@ function inputValue(){
     
     var x = inputElement.value;
     var nums = x.split('-');
-    
+
     // date rearranged {dd/mm/yyyy}
     moveInArray(nums, 2, 0);
     moveInArray(nums, 1, 2);    
