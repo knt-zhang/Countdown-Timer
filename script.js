@@ -26,11 +26,11 @@ function countdown(targetDate) {
     const targetYearDate = new Date(targetDate);
     const currentDate = new Date();
 
-    const totalSeconds = (targetYearDate - currentDate) / 1000;
-    const days = Math.floor(totalSeconds / 3600 / 24);
-    const hours = Math.floor(totalSeconds / 3600) % 24;
-    const mins = (Math.floor(totalSeconds / 60) % 24);
-    const seconds = Math.floor(totalSeconds % 60);
+    const totalSeconds = (targetYearDate - currentDate);
+    const days = Math.floor(totalSeconds / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((totalSeconds % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((totalSeconds % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((totalSeconds % (1000 * 60)) / 1000);
 
     daysElement.innerHTML = formatTime(days);
     hoursElement.innerHTML = formatTime(hours);
